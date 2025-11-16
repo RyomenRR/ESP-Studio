@@ -18,8 +18,7 @@
             android:layout_height="wrap_content"
             android:title="ESP Studio"
             app:navigationIcon="@drawable/ic_menu"
-            app:elevation="6dp"
-            style="?attr/materialToolbarStyle" />
+            app:elevation="6dp" />
 
         <!-- Content placeholder (fragment container later) -->
         <FrameLayout

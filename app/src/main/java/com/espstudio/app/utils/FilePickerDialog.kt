@@ -5,22 +5,27 @@ import android.content.Context
 import java.io.File
 
 class FilePickerDialog(
-    context: Context,
+    private val context: Context,
     private val root: File,
     private val onSelect: (File) -> Unit
 ) {
 
     private var current = root
 
-    private val dialog: AlertDialog =
-        AlertDialog.Builder(context)
-            .setTitle("Select File")
-            .setItems(getItems()) { _, which ->
-                handleSelect(which)
-            }.setNegativeButton("Close", null)
-            .create()
+    fun show() {
+        showDialog()
+    }
 
-    fun show() = dialog.show()
+    private fun showDialog() {
+        val items = getItems()
+        AlertDialog.Builder(context)
+            .setTitle(current.absolutePath)
+            .setItems(items) { _, which ->
+                handleSelect(which)
+            }
+            .setNegativeButton("Close", null)
+            .show()
+    }
 
     private fun getItems(): Array<String> {
         return current.list()?.sorted()?.toTypedArray() ?: emptyArray()
@@ -32,12 +37,9 @@ class FilePickerDialog(
 
         if (file.isDirectory) {
             current = file
-            dialog.setTitle(current.absolutePath)
-            dialog.setItems(getItems()) { _, i -> handleSelect(i) }
-            dialog.show()
+            showDialog()
         } else {
             onSelect(file)
-            dialog.dismiss()
         }
     }
 }

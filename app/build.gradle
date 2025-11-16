@@ -73,7 +73,7 @@ dependencies {
     // USB Serial
     implementation 'com.github.mik3y:usb-serial-for-android:3.5.1'
 
-    // Syntax Highlighting Editor (C/C++)
-    implementation 'io.github.rosemoe.sora-editor:editor:0.23.5'
-    implementation 'io.github.rosemoe.sora-editor:language-cpp:0.23.5'
+    // Syntax Highlighting Editor (C/C++) - Temporarily commented for build
+    // implementation 'io.github.rosemoe.sora-editor:editor:0.23.4'
+    // implementation 'io.github.rosemoe.sora-editor:language-textmate:0.23.4'
 }

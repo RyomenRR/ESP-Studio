@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Text" parent="android:Widget.TextView"/>
+    
     <style name="Text.Title">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/md_theme_dark_onSurface</item>

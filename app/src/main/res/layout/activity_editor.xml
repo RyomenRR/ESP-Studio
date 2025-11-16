@@ -17,10 +17,15 @@
         app:elevation="6dp" />
 
     <!-- Editor -->
-    <io.github.rosemoe.sora.editor.CodeEditor
+    <EditText
         android:id="@+id/editor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:fontFamily="monospace"
+        android:textColor="@color/md_theme_dark_onSurface"
+        android:background="@color/md_theme_dark_background" />
 
 </LinearLayout>

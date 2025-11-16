@@ -1,13 +1,15 @@
 package com.espstudio.app.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.espstudio.app.databinding.ActivityEditorBinding
 import com.espstudio.app.R
 import com.espstudio.app.utils.Prefs
-import io.github.rosemoe.sora.editor.CodeEditor
-import io.github.rosemoe.sora.langs.cpp.CppLanguage
+import com.espstudio.app.utils.FilePickerDialog
+// import io.github.rosemoe.sora.editor.CodeEditor
+// import io.github.rosemoe.sora.langs.cpp.CppLanguage
 import java.io.File
 
 class EditorActivity : AppCompatActivity() {
@@ -31,10 +33,11 @@ class EditorActivity : AppCompatActivity() {
     }
 
     private fun setupEditor() {
-        binding.editor.setEditorLanguage(CppLanguage())
-        binding.editor.isLineNumberEnabled = true
-        binding.editor.isWordwrap = false
-        binding.editor.colorScheme.isDark = true
+        // Sora Editor setup - temporarily disabled for build
+        // binding.editor.setEditorLanguage(CppLanguage())
+        // binding.editor.isLineNumberEnabled = true
+        // binding.editor.isWordwrap = false
+        // binding.editor.colorScheme.isDark = true
     }
 
     private fun setupToolbar() {
