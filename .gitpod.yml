@@ -1,0 +1,25 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Setup Android SDK
+    init: |
+      mkdir -p $ANDROID_HOME/licenses
+      echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > $ANDROID_HOME/licenses/android-sdk-license
+      yes | sdkmanager --licenses
+      sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0" "patcher;v4"
+
+ports:
+  - port: 8080
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - fwcd.kotlin
+    - redhat.vscode-xml
+
+jetbrains:
+  intellij:
+    plugins:
+      - org.jetbrains.kotlin
