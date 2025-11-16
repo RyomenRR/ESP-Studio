@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="12dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/sketchName"
+        android:textColor="@color/md_theme_dark_onSurface"
+        android:textSize="17sp"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/btnDelete"
+        android:src="@drawable/ic_delete"
+        android:layout_width="32dp"
+        android:layout_height="32dp"/>
+</LinearLayout>

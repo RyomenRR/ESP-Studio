@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.espstudio.app">
+
+    <!-- USB Host support -->
+    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
+
+    <!-- Internet for CLI downloads -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- External storage for sketches -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!-- Foreground service (for internal logging on Android 14+) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+
+    <!-- USB Permissions -->
+    <uses-permission android:name="android.permission.USB_PERMISSION" tools:ignore="InvalidPermission" />
+
+    <application
+        android:allowBackup="true"
+        android:label="ESP Studio"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.ESPStudio">
+
+        <!-- Main Entry Activity with Drawer -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <!-- USB attach event -->
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter"/>
+        </activity>
+
+        <!-- Editor Activity -->
+        <activity
+            android:name=".ui.EditorActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Build Console Activity -->
+        <activity
+            android:name=".ui.BuildConsoleActivity"
+            android:exported="false" />
+
+        <!-- Flash Console Activity -->
+        <activity
+            android:name=".ui.FlashConsoleActivity"
+            android:exported="false" />
+
+        <!-- Sketch Manager Activity -->
+        <activity
+            android:name=".ui.SketchManagerActivity"
+            android:exported="false" />
+
+        <!-- USB Device Select Activity -->
+        <activity
+            android:name=".ui.UsbDeviceSelectActivity"
+            android:exported="false" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false" />
+
+        <!-- About Activity -->
+        <activity
+            android:name=".ui.AboutActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
